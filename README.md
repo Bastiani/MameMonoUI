@@ -6,3 +6,5 @@ Only tested on Linux, however it should work in Windows by installing Mono for W
 
 On Linux, execute on terminal $ ./MameMonoUI.exe
 Do not attempt giving-click the file if you have Wine installed.
+
+![](https://raw.githubusercontent.com/Bastiani/MameMonoUI/master/mameui.gif)
