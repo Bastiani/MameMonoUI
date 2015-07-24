@@ -1,0 +1,7 @@
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/obj/x86/Debug/MameMonoUI.gtk-gui.gui.stetic
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/bin/Debug/MameMonoUI.exe.mdb
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/bin/Debug/MameMonoUI.exe
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/obj/x86/Debug/MameMonoUI.exe
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/obj/x86/Debug/MameMonoUI.exe.mdb
+/home/rafael/Projetos/Mono/MameMonoUI/MameMonoUI/bin/Debug/MadMilkman.Ini.dll
