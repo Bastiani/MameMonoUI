@@ -5,6 +5,10 @@ Copyright (C) 2002-2014 Novell, Inc, Xamarin Inc and Contributors. www.mono-proj
 Only tested on Linux, however it should work in Windows by installing Mono for Windows and execute on command prompt "mono MameMonoUI.exe"
 
 On Linux, execute on terminal $ ./MameMonoUI.exe
+
 Do not attempt giving-click the file if you have Wine installed.
+
+Download https://github.com/Bastiani/MameMonoUI/blob/master/MameMonoUI.tar.gz
+
 
 ![](https://raw.githubusercontent.com/Bastiani/MameMonoUI/master/mameui.gif)
