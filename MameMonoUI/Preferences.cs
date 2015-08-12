@@ -1,6 +1,9 @@
 ﻿using System;
 using MadMilkman.Ini;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MameMonoUI
 {
@@ -24,6 +27,8 @@ namespace MameMonoUI
 							edtSnapLocation.Text = key.Value;
 						else if (key.Name == "Roms")
 							edtRomsLocation.Text = key.Value;
+						else if (key.Name == "Flyer")
+							edtFlyerLocation.Text = key.Value;
 					}
 				}
 			} else {
@@ -31,20 +36,30 @@ namespace MameMonoUI
 					new IniSection(file, "MameUI Config",
 						new IniKey(file, "MameExe", ""),
 						new IniKey(file, "Snap", ""),
-						new IniKey(file, "Roms", "")));
+						new IniKey(file, "Roms", ""),
+						new IniKey(file, "Flyer", "")
+					));
 				file.Save("preferences.ini");
 			}
 		}
 
-		protected void OnBtnSaveClicked (object sender, EventArgs e)
+		private void SavePreferences()
 		{
 			IniFile file = new IniFile(new IniOptions());
 			file.Sections.Add(
 				new IniSection(file, "MameUI Config",
 					new IniKey(file, "MameExe", edtMameAppLocation.Text),
 					new IniKey(file, "Snap", edtSnapLocation.Text),
-					new IniKey(file, "Roms", edtRomsLocation.Text)));
+					new IniKey(file, "Roms", edtRomsLocation.Text),
+					new IniKey(file, "Flyer", edtFlyerLocation.Text)
+				));
+			
 			file.Save("preferences.ini");
+		}
+
+		protected void OnBtnSaveClicked (object sender, EventArgs e)
+		{
+			SavePreferences ();
 			this.Destroy ();
 		}
 
@@ -52,6 +67,7 @@ namespace MameMonoUI
 		{
 			this.Destroy ();
 		}
+			
 	}
 }
 

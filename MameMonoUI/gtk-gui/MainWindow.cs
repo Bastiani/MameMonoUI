@@ -23,15 +23,41 @@ public partial class MainWindow
 	
 	private global::Gtk.HPaned hpaned1;
 	
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+	private global::Gtk.ScrolledWindow GtkScrolledWindow1;
 	
 	private global::Gtk.TreeView tvRoms;
 	
-	private global::Gtk.Image imgRom;
+	private global::Gtk.Notebook notebook1;
+	
+	private global::Gtk.HBox hbox1;
+	
+	private global::Gtk.Image imgRom1;
+	
+	private global::Gtk.Image imgRom2;
+	
+	private global::Gtk.Label label2;
+	
+	private global::Gtk.ScrolledWindow GtkScrolledWindow3;
+	
+	private global::Gtk.Image imgFlyer;
+	
+	private global::Gtk.Label label3;
+	
+	private global::Gtk.VBox vbox2;
+	
+	private global::Gtk.HBox hbox2;
+	
+	private global::Gtk.CheckButton ckbOpenGLGLSL;
+	
+	private global::Gtk.Image image1;
+	
+	private global::Gtk.Button btnRomConfigSave;
+	
+	private global::Gtk.Label label4;
 	
 	private global::Gtk.Statusbar statusbar1;
 	
-	private global::Gtk.Label label1;
+	private global::Gtk.Label label5;
 
 	protected virtual void Build ()
 	{
@@ -81,43 +107,151 @@ public partial class MainWindow
 		this.hpaned1.CanFocus = true;
 		this.hpaned1.Name = "hpaned1";
 		this.hpaned1.Position = 237;
+		this.hpaned1.BorderWidth = ((uint)(2));
 		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+		this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
+		this.GtkScrolledWindow1.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow1.Gtk.Container+ContainerChild
 		this.tvRoms = new global::Gtk.TreeView ();
 		this.tvRoms.CanFocus = true;
 		this.tvRoms.Name = "tvRoms";
-		this.GtkScrolledWindow.Add (this.tvRoms);
-		this.hpaned1.Add (this.GtkScrolledWindow);
-		global::Gtk.Paned.PanedChild w4 = ((global::Gtk.Paned.PanedChild)(this.hpaned1 [this.GtkScrolledWindow]));
+		this.GtkScrolledWindow1.Add (this.tvRoms);
+		this.hpaned1.Add (this.GtkScrolledWindow1);
+		global::Gtk.Paned.PanedChild w4 = ((global::Gtk.Paned.PanedChild)(this.hpaned1 [this.GtkScrolledWindow1]));
 		w4.Resize = false;
 		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.imgRom = new global::Gtk.Image ();
-		this.imgRom.Name = "imgRom";
-		this.hpaned1.Add (this.imgRom);
-		this.vbox1.Add (this.hpaned1);
-		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hpaned1]));
+		this.notebook1 = new global::Gtk.Notebook ();
+		this.notebook1.CanFocus = true;
+		this.notebook1.Name = "notebook1";
+		this.notebook1.CurrentPage = 0;
+		this.notebook1.Scrollable = true;
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.hbox1 = new global::Gtk.HBox ();
+		this.hbox1.Name = "hbox1";
+		this.hbox1.Spacing = 6;
+		// Container child hbox1.Gtk.Box+BoxChild
+		this.imgRom1 = new global::Gtk.Image ();
+		this.imgRom1.Name = "imgRom1";
+		this.hbox1.Add (this.imgRom1);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.imgRom1]));
+		w5.Position = 0;
+		w5.Expand = false;
+		w5.Fill = false;
+		// Container child hbox1.Gtk.Box+BoxChild
+		this.imgRom2 = new global::Gtk.Image ();
+		this.imgRom2.Name = "imgRom2";
+		this.hbox1.Add (this.imgRom2);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.imgRom2]));
 		w6.Position = 1;
+		w6.Expand = false;
+		w6.Fill = false;
+		this.notebook1.Add (this.hbox1);
+		// Notebook tab
+		this.label2 = new global::Gtk.Label ();
+		this.label2.Name = "label2";
+		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Snap");
+		this.notebook1.SetTabLabel (this.hbox1, this.label2);
+		this.label2.ShowAll ();
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.GtkScrolledWindow3 = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow3.Name = "GtkScrolledWindow3";
+		this.GtkScrolledWindow3.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow3.Gtk.Container+ContainerChild
+		global::Gtk.Viewport w8 = new global::Gtk.Viewport ();
+		w8.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child GtkViewport2.Gtk.Container+ContainerChild
+		this.imgFlyer = new global::Gtk.Image ();
+		this.imgFlyer.Name = "imgFlyer";
+		w8.Add (this.imgFlyer);
+		this.GtkScrolledWindow3.Add (w8);
+		this.notebook1.Add (this.GtkScrolledWindow3);
+		global::Gtk.Notebook.NotebookChild w11 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.GtkScrolledWindow3]));
+		w11.Position = 1;
+		// Notebook tab
+		this.label3 = new global::Gtk.Label ();
+		this.label3.Name = "label3";
+		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Flyer");
+		this.notebook1.SetTabLabel (this.GtkScrolledWindow3, this.label3);
+		this.label3.ShowAll ();
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.vbox2 = new global::Gtk.VBox ();
+		this.vbox2.Name = "vbox2";
+		this.vbox2.Spacing = 6;
+		// Container child vbox2.Gtk.Box+BoxChild
+		this.hbox2 = new global::Gtk.HBox ();
+		this.hbox2.Name = "hbox2";
+		this.hbox2.Spacing = 6;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.ckbOpenGLGLSL = new global::Gtk.CheckButton ();
+		this.ckbOpenGLGLSL.CanFocus = true;
+		this.ckbOpenGLGLSL.Name = "ckbOpenGLGLSL";
+		this.ckbOpenGLGLSL.Label = global::Mono.Unix.Catalog.GetString ("OpenGL GLSL");
+		this.ckbOpenGLGLSL.DrawIndicator = true;
+		this.ckbOpenGLGLSL.UseUnderline = true;
+		this.hbox2.Add (this.ckbOpenGLGLSL);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.ckbOpenGLGLSL]));
+		w12.Position = 0;
+		// Container child hbox2.Gtk.Box+BoxChild
+		this.image1 = new global::Gtk.Image ();
+		this.image1.TooltipMarkup = "Enable OpenGL GLSL, if available (default off)";
+		this.image1.Name = "image1";
+		this.image1.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-dialog-info", global::Gtk.IconSize.Menu);
+		this.hbox2.Add (this.image1);
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.image1]));
+		w13.Position = 1;
+		w13.Expand = false;
+		w13.Fill = false;
+		this.vbox2.Add (this.hbox2);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox2]));
+		w14.Position = 0;
+		w14.Expand = false;
+		w14.Fill = false;
+		// Container child vbox2.Gtk.Box+BoxChild
+		this.btnRomConfigSave = new global::Gtk.Button ();
+		this.btnRomConfigSave.CanFocus = true;
+		this.btnRomConfigSave.Name = "btnRomConfigSave";
+		this.btnRomConfigSave.UseUnderline = true;
+		this.btnRomConfigSave.Label = global::Mono.Unix.Catalog.GetString ("Save");
+		global::Gtk.Image w15 = new global::Gtk.Image ();
+		w15.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-floppy", global::Gtk.IconSize.Menu);
+		this.btnRomConfigSave.Image = w15;
+		this.vbox2.Add (this.btnRomConfigSave);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.btnRomConfigSave]));
+		w16.Position = 2;
+		w16.Expand = false;
+		w16.Fill = false;
+		this.notebook1.Add (this.vbox2);
+		global::Gtk.Notebook.NotebookChild w17 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox2]));
+		w17.Position = 2;
+		// Notebook tab
+		this.label4 = new global::Gtk.Label ();
+		this.label4.Name = "label4";
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Rom Config");
+		this.notebook1.SetTabLabel (this.vbox2, this.label4);
+		this.label4.ShowAll ();
+		this.hpaned1.Add (this.notebook1);
+		this.vbox1.Add (this.hpaned1);
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hpaned1]));
+		w19.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
 		// Container child statusbar1.Gtk.Box+BoxChild
-		this.label1 = new global::Gtk.Label ();
-		this.label1.Name = "label1";
-		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("MameMonoUI v1.0");
-		this.statusbar1.Add (this.label1);
-		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.label1]));
-		w7.Position = 2;
-		w7.Expand = false;
-		w7.Fill = false;
+		this.label5 = new global::Gtk.Label ();
+		this.label5.Name = "label5";
+		this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("MameMonoUI v1.0");
+		this.statusbar1.Add (this.label5);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.label5]));
+		w20.Position = 2;
+		w20.Expand = false;
+		w20.Fill = false;
 		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
-		w8.Position = 2;
-		w8.Expand = false;
-		w8.Fill = false;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
+		w21.Position = 2;
+		w21.Expand = false;
+		w21.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -131,5 +265,6 @@ public partial class MainWindow
 		this.preferencesAction.Activated += new global::System.EventHandler (this.OnPreferencesActionActivated);
 		this.tvRoms.RowActivated += new global::Gtk.RowActivatedHandler (this.OnTvRomsRowActivated);
 		this.tvRoms.CursorChanged += new global::System.EventHandler (this.OnTvRomsCursorChanged);
+		this.btnRomConfigSave.Clicked += new global::System.EventHandler (this.OnBtnRomConfigSaveClicked);
 	}
 }

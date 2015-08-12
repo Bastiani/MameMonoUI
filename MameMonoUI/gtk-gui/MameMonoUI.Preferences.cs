@@ -30,6 +30,16 @@ namespace MameMonoUI
 		
 		private global::Gtk.Image image3;
 		
+		private global::Gtk.HBox hbox6;
+		
+		private global::Gtk.Label label5;
+		
+		private global::Gtk.Entry edtFlyerLocation;
+		
+		private global::Gtk.Image image4;
+		
+		private global::Gtk.HSeparator hseparator2;
+		
 		private global::Gtk.HBox hbox4;
 		
 		private global::Gtk.Button btnSave;
@@ -162,6 +172,51 @@ namespace MameMonoUI
 			w12.Expand = false;
 			w12.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
+			this.hbox6 = new global::Gtk.HBox ();
+			this.hbox6.Name = "hbox6";
+			this.hbox6.Spacing = 4;
+			// Container child hbox6.Gtk.Box+BoxChild
+			this.label5 = new global::Gtk.Label ();
+			this.label5.Name = "label5";
+			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("Flyer Location");
+			this.hbox6.Add (this.label5);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.label5]));
+			w13.Position = 0;
+			w13.Expand = false;
+			w13.Fill = false;
+			// Container child hbox6.Gtk.Box+BoxChild
+			this.edtFlyerLocation = new global::Gtk.Entry ();
+			this.edtFlyerLocation.CanFocus = true;
+			this.edtFlyerLocation.Name = "edtFlyerLocation";
+			this.edtFlyerLocation.IsEditable = true;
+			this.edtFlyerLocation.InvisibleChar = '•';
+			this.hbox6.Add (this.edtFlyerLocation);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.edtFlyerLocation]));
+			w14.Position = 1;
+			// Container child hbox6.Gtk.Box+BoxChild
+			this.image4 = new global::Gtk.Image ();
+			this.image4.TooltipMarkup = "Select the location of the flyer folder.";
+			this.image4.Name = "image4";
+			this.image4.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-dialog-info", global::Gtk.IconSize.Menu);
+			this.hbox6.Add (this.image4);
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox6 [this.image4]));
+			w15.Position = 2;
+			w15.Expand = false;
+			w15.Fill = false;
+			this.vbox1.Add (this.hbox6);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox6]));
+			w16.Position = 3;
+			w16.Expand = false;
+			w16.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.hseparator2 = new global::Gtk.HSeparator ();
+			this.hseparator2.Name = "hseparator2";
+			this.vbox1.Add (this.hseparator2);
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hseparator2]));
+			w17.Position = 4;
+			w17.Expand = false;
+			w17.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
 			this.hbox4 = new global::Gtk.HBox ();
 			this.hbox4.Name = "hbox4";
 			this.hbox4.Spacing = 6;
@@ -173,10 +228,10 @@ namespace MameMonoUI
 			this.btnSave.UseUnderline = true;
 			this.btnSave.Label = "gtk-save";
 			this.hbox4.Add (this.btnSave);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.btnSave]));
-			w13.Position = 0;
-			w13.Expand = false;
-			w13.Fill = false;
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.btnSave]));
+			w18.Position = 0;
+			w18.Expand = false;
+			w18.Fill = false;
 			// Container child hbox4.Gtk.Box+BoxChild
 			this.btnCancel = new global::Gtk.Button ();
 			this.btnCancel.CanFocus = true;
@@ -185,21 +240,21 @@ namespace MameMonoUI
 			this.btnCancel.UseUnderline = true;
 			this.btnCancel.Label = "gtk-cancel";
 			this.hbox4.Add (this.btnCancel);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.btnCancel]));
-			w14.Position = 1;
-			w14.Expand = false;
-			w14.Fill = false;
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.btnCancel]));
+			w19.Position = 1;
+			w19.Expand = false;
+			w19.Fill = false;
 			this.vbox1.Add (this.hbox4);
-			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
-			w15.Position = 3;
-			w15.Expand = false;
-			w15.Fill = false;
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
+			w20.Position = 5;
+			w20.Expand = false;
+			w20.Fill = false;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 487;
-			this.DefaultHeight = 132;
+			this.DefaultHeight = 199;
 			this.Show ();
 			this.btnSave.Clicked += new global::System.EventHandler (this.OnBtnSaveClicked);
 			this.btnCancel.Clicked += new global::System.EventHandler (this.OnBtnCancelClicked);

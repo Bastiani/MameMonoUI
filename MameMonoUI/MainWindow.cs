@@ -14,16 +14,18 @@ public partial class MainWindow: Gtk.Window
 
 	public class Config
 	{
-		public Config (string mameexe, string snap, string roms)
+		public Config (string mameexe, string snap, string roms, string flyer)
 		{
 			this.MameExe = mameexe;
 			this.Snap = snap;
 			this.Roms = roms;
+			this.Flyer = flyer;
 		}
 
 		public string MameExe;
 		public string Snap;
 		public string Roms;
+		public string Flyer;
 	}
 
 	public class Roms
@@ -38,7 +40,8 @@ public partial class MainWindow: Gtk.Window
 		public string RomTitle;
 	}
 
-	private Config config = new Config ("","","");
+	private Config config = new Config ("","","","");
+	private string romSelected;
 
 	private void LoadConfig()
 	{
@@ -56,14 +59,54 @@ public partial class MainWindow: Gtk.Window
 						config.Snap = key.Value;
 					else if (key.Name == "Roms")
 						config.Roms = key.Value;
+					else if (key.Name == "Flyer")
+						config.Flyer = key.Value;
 				}
 			}
+		} else {
+			file.Save("preferences.ini");
+		}
+	}
+
+	private void SaveRomsPreferences(string rom="")
+	{
+		IniFile file = new IniFile(new IniOptions());
+		if (File.Exists ("config/" + rom + ".ini"))
+			file.Load ("config/" + rom + ".ini");
+		else
+			file.Save ("config/" + rom + ".ini");
+
+		file.Sections.Add(
+			new IniSection(file, rom + " config",
+				new IniKey(file, "gl_glsl", ckbOpenGLGLSL.Active.ToString())
+			));
+
+		file.Save("config/" + rom + ".ini");
+	}
+
+	private void LoadRomConfig(string rom="")
+	{
+		IniFile file = new IniFile(new IniOptions());
+		if (File.Exists ("config/" + rom + ".ini")) {
+			file.Load("config/" + rom + ".ini");
+
+			foreach (var section in file.Sections)
+			{
+				foreach (var key in section.Keys)
+				{
+					if (key.Name == "gl_glsl")
+						ckbOpenGLGLSL.Active = (key.Value == "True") ? true : false;
+				}
+			}
+		} else {
+			ckbOpenGLGLSL.Active = false;
 		}
 	}
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
+
 		Gtk.TreeViewColumn romFileColumn = new Gtk.TreeViewColumn ();
 		romFileColumn.Title = "File";
 		Gtk.CellRendererText romFileCell = new Gtk.CellRendererText ();
@@ -136,7 +179,8 @@ public partial class MainWindow: Gtk.Window
 		TreeIter iter;
 
 		if (selection.GetSelected (out model, out iter)) {
-			Process.Start (config.MameExe, model.GetValue (iter, 0).ToString ());
+			Process.Start (config.MameExe, model.GetValue (iter, 0).ToString () + 
+				((ckbOpenGLGLSL.Active == true) ? " -gl_glsl" : ""));
 		}
 	}
 
@@ -149,11 +193,31 @@ public partial class MainWindow: Gtk.Window
 		if (selection.GetSelected (out model, out iter)) {
 			if (File.Exists (config.Snap + "/" + model.GetValue (iter, 0).ToString () + "/0000.png")) {
 				var pixbuf = new Gdk.Pixbuf (config.Snap + "/" + model.GetValue (iter, 0).ToString () + "/0000.png");
-				imgRom.Pixbuf = pixbuf;
-			} else
+				imgRom1.Pixbuf = pixbuf;
+			} else 
 			{
-				imgRom.Clear ();
+				imgRom1.Clear ();
 			}
+
+			if (File.Exists (config.Snap + "/" + model.GetValue (iter, 0).ToString () + "/0001.png")) {
+				var pixbuf = new Gdk.Pixbuf (config.Snap + "/" + model.GetValue (iter, 0).ToString () + "/0001.png");
+				imgRom2.Pixbuf = pixbuf;
+			} else 
+			{
+				imgRom2.Clear ();
+			}
+
+			if (File.Exists (config.Flyer + "/" + model.GetValue (iter, 0).ToString () + ".png")) {
+				var pixbuf = new Gdk.Pixbuf (config.Flyer + "/" + model.GetValue (iter, 0).ToString () + ".png");
+				imgFlyer.Pixbuf = pixbuf;
+			} else 
+			{
+				imgFlyer.Clear ();
+			}
+
+			romSelected = model.GetValue (iter, 0).ToString ();
+
+			LoadRomConfig (romSelected);
 		}
 	}
 
@@ -166,6 +230,11 @@ public partial class MainWindow: Gtk.Window
 	{
 		Preferences preferences = new Preferences();
 		preferences.Show ();
+	}
+
+	protected void OnBtnRomConfigSaveClicked (object sender, EventArgs e)
+	{
+		SaveRomsPreferences (romSelected);
 	}
 
 }
